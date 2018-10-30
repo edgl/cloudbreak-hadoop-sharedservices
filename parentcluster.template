@@ -476,9 +476,6 @@
           "name": "NAMENODE"
         },
         {
-          "name": "SLIDER"
-        },
-        {
           "name": "MAPREDUCE2_CLIENT"
         },
         {
