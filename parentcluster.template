@@ -159,6 +159,9 @@
           "ranger_solr_replication_factor": "1",
           "ranger_admin_username": "amb_ranger_admin",
           "ranger_admin_password" : "{{rangeradminpassword}}",
+          "rangerusersync_user_password" : "{{rangerusersyncpassword}}",
+          "rangerusersync_user_password" : "{{rangertagsyncpassword}}",
+          "keyadmin_user_password" : "{{rangerkeyadminpassword}}",
           "ranger_solr_shards": "1",
           "ranger_pid_dir": "/var/run/ranger",
           "create_db_dbuser": "false",
@@ -377,6 +380,14 @@
         "javax.jdo.option.ConnectionURL": "jdbc:postgresql://{{hivedbhost}}/{{hivedbname}}?createDatabaseIfNotExist=true",
         "javax.jdo.option.ConnectionUserName": "{{hivedbuser}}"
       }
+    },
+    {
+            "atlas-env": {
+                "properties_attributes": {},
+                "properties": {
+                    "atlas.admin.password": "{{atlasadminpassword}}"
+                }
+            }
     },
     {
       "ranger-hdfs-plugin-properties": {

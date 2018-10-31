@@ -33,8 +33,13 @@ rangerdbpassword = db_cred('Ranger ')
 
 
 rangeradminpassword = db_cred('Ranger Ambari Admin ')
+rangerusersyncpassword = db_cred('Ranger UserSync Admin ')
+rangertagsyncpassword = db_cred('Ranger TagSync Admin ')
+rangerkeyadminpassword = db_cred('Ranger Key Admin ')
 
-context = { 's3key' : s3key, 's3secret' : s3secret, 'hivedbname' : hivedbname, 'hivedbhost' : hivedbhost, 'hivedbuser' : hivedbuser, 'hivedbpassword' : hivedbpassword, 'rangerdbhost' : rangerdbhost, 'rangerdbname' : rangerdbname, 'rangerdbuser' : rangerdbuser, 'rangerdbpassword' : rangerdbpassword, 'rangeradminpassword' : rangeradminpassword }
+atlasadminpassword = db_cred('Atlas Admin ')
+
+context = { 's3key' : s3key, 's3secret' : s3secret, 'hivedbname' : hivedbname, 'hivedbhost' : hivedbhost, 'hivedbuser' : hivedbuser, 'hivedbpassword' : hivedbpassword, 'rangerdbhost' : rangerdbhost, 'rangerdbname' : rangerdbname, 'rangerdbuser' : rangerdbuser, 'rangerdbpassword' : rangerdbpassword, 'rangeradminpassword' : rangeradminpassword, 'rangerusersyncpassword' : rangerusersyncpassword,  'rangertagsyncpassword' : rangertagsyncpassword, 'rangerkeyadminpassword': rangerkeyadminpassword, 'atlasadminpassword' : atlasadminpassword}
 
 
 parent = render('./parentcluster.template', context)

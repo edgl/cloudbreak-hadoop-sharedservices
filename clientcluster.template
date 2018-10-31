@@ -7,7 +7,7 @@
           "hive.service.metrics.hadoop2.component": "hiveserver2",
           "hive.security.authenticator.manager": "org.apache.hadoop.hive.ql.security.SessionStateUserAuthenticator",
           "hive.security.authorization.enabled": "true",
-          "hive.metastore.uris": "thrift://{{master1}}:9083",
+          "hive.metastore.uris": "thrift://{{master2}}:9083",
           "hive.conf.restricted.list": "hive.security.authorization.enabled,hive.security.authorization.manager,hive.security.authenticator.manager",
           "hive.security.authorization.manager": "org.apache.ranger.authorization.hive.authorizer.RangerHiveAuthorizerFactory",
           "hive.metastore.metrics.enabled": "true",
@@ -247,7 +247,7 @@
         "hive.txn.manager": "org.apache.hadoop.hive.ql.lockmgr.DbTxnManager",
         "hive.compactor.initiator.on": "true",
         "hive.exec.post.hooks": "org.apache.hadoop.hive.ql.hooks.ATSHook,org.apache.atlas.hive.hook.HiveHook",
-        "hive.metastore.uris": "thrift://{{master1}}:9083",
+        "hive.metastore.uris": "thrift://{{master2}}:9083",
         "hive.compactor.worker.threads": "5",
         "atlas.rest.address": "http://{{master2}}:21000",
         "javax.jdo.option.ConnectionDriverName": "org.postgresql.Driver",
@@ -417,7 +417,8 @@
     }
   ],
   "Blueprints": {
-    "stack_name": "hdp30clientcluster",
+    "blueprint_name": "hdp30clientclusters",
+    "stack_name": "HDP",
     "stack_version": "3.0"
   }
 }
