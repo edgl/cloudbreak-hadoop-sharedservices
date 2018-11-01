@@ -259,9 +259,6 @@
                 },
                 {
                     "name": "SQOOP"
-                },
-                {
-                    "name": "ZKFC"
                 }
             ]
         },
@@ -296,9 +293,6 @@
                 },
                 {
                     "name": "MAPREDUCE2_CLIENT"
-                },
-                {
-                    "name": "ZKFC"
                 },
                 {
                     "name": "RESOURCEMANAGER"
