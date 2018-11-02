@@ -246,8 +246,8 @@
                 "properties": {
                     "fs.defaultFS": "hdfs://nameservice1",
                     "ha.zookeeper.quorum": "%HOSTGROUP::master1%:2181,%HOSTGROUP::master2%:2181,%HOSTGROUP::master3%:2181",
-                    "fs.s3a.access.key": "{{s3key}}",
-                    "fs.s3a.secret.key": "{{s3secret}}"
+                    "fs.s3a.access.key": "{{{s3key}}}",
+                    "fs.s3a.secret.key": "{{{s3secret}}}"
                 }
             }
         },
@@ -330,8 +330,8 @@
                     "dfs.namenode.rpc-address": "localhost:8020",
                     "dfs.namenode.secondary.http-address": "localhost:50090",
                     "dfs.ha.fencing.methods": "shell(/bin/true)",
-                    "fs.s3a.access.key": "{{s3key}}",
-                    "fs.s3a.secret.key": "{{s3secret}}",
+                    "fs.s3a.access.key": "{{{s3key}}}",
+                    "fs.s3a.secret.key": "{{{s3secret}}}",
                     "fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
                     "dfs.ha.namenodes.nameservice1": "nn1,nn2",
                     "dfs.namenode.inode.attributes.provider.class": "org.apache.ranger.authorization.hadoop.RangerHdfsAuthorizer",

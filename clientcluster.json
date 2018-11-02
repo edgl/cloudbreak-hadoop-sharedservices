@@ -108,8 +108,8 @@
             "core-site": {
                 "properties": {
                     "fs.trash.interval": "4320",
-                    "fs.s3a.access.key": "{{s3key}}",
-                    "fs.s3a.secret.key": "{{s3secret}}"
+                    "fs.s3a.access.key": "{{{s3key}}}",
+                    "fs.s3a.secret.key": "{{{s3secret}}}"
                 }
             }
         },
@@ -188,8 +188,8 @@
         {
             "hdfs-site": {
                 "dfs.namenode.safemode.threshold-pct": "0.99",
-                "fs.s3a.access.key": "{{s3key}}",
-                "fs.s3a.secret.key": "{{s3secret}}",
+                "fs.s3a.access.key": "{{{s3key}}}",
+                "fs.s3a.secret.key": "{{{s3secret}}}",
                 "fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem"
             }
         },
