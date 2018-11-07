@@ -87,6 +87,14 @@
             }
         },
         {
+            "mapred-site": {
+                "mapreduce.job.reduce.slowstart.completedmaps": "0.7",
+                "mapreduce.map.output.compress": "true",
+                "mapreduce.output.fileoutputformat.compress": "true",
+                "mapreduce.job.queuename": "default"
+            }
+        },
+        {
             "ranger-hive-audit": {
                 "properties_attributes": {},
                 "properties": {
@@ -281,6 +289,21 @@
             }
         },
         {
+            "mapred-site": {
+                "mapreduce.job.reduce.slowstart.completedmaps": "0.7",
+                "mapreduce.map.output.compress": "true",
+                "mapreduce.output.fileoutputformat.compress": "true",
+                "mapreduce.job.queuename": "default"
+            }
+        },
+        {
+            "tez-site": {
+                "properties": {
+                    "tez.queue.name": "default"
+                }
+            }
+        },
+        {
             "capacity-scheduler": {
                 "properties_attributes": {},
                 "properties": {
@@ -299,6 +322,7 @@
                     "yarn.scheduler.capacity.root.default.acl_submit_applications": "*",
                     "yarn.scheduler.capacity.root.default.maximum-capacity": "90",
                     "yarn.scheduler.capacity.root.yarn-system.capacity": "10",
+                    "yarn.scheduler.capacity.root.yarn-system.maximum-capacity": "10",
                     "yarn.scheduler.capacity.root.yarn-system.acl_submit_applications": "yarn-ats,yarn",
                     "yarn.scheduler.capacity.root.yarn-system.acl_administer_queue": "yarn-ats,yarn",
                     "yarn.scheduler.capacity.root.yarn-system.disable_preemption": "true",
@@ -316,7 +340,17 @@
             "yarn-hbase-env": {
                 "properties_attributes": {},
                 "properties": {
-                    "is_hbase_system_service_launch": "true"
+                    "is_hbase_system_service_launch": "true",
+                    "yarn_hbase_system_service_queue_name": "yarn-system",
+                    "hbase_java_io_tmpdir": "/yarn-hbase-tmp"
+                }
+            }
+        },
+        {
+            "hbase-env": {
+                "properties_attributes": {},
+                "properties": {
+                    "hbase_java_io_tmpdir": "/hbase-tmp"
                 }
             }
         },
@@ -371,7 +405,8 @@
                 "javax.jdo.option.ConnectionDriverName": "{{{rds.hive.connectionDriver}}}",
                 "javax.jdo.option.ConnectionPassword": "{{{rds.hive.connectionPassword}}}",
                 "javax.jdo.option.ConnectionURL": "{{{rds.hive.connectionString}}}?createDatabaseIfNotExist=true",
-                "javax.jdo.option.ConnectionUserName": "{{{rds.hive.connectionUserName}}}"
+                "javax.jdo.option.ConnectionUserName": "{{{rds.hive.connectionUserName}}}",
+                "hive.server2.tez.default.queues": "default"
             }
         },
         {
