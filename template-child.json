@@ -1,0 +1,165 @@
+{
+  "inputs": {
+    "s3secret": "xxxxxxxxxxxxxxxxxxxxxxxx",
+    "s3key": "xxxxxxxxxxxxxxxxxxxxx",
+    "rangeradminpassword": "password1234",
+    "master1": "??????????????????????",
+    "master2": "??????????????????????",
+    "master3": "??????????????????????"
+  },
+  "general": {
+    "credentialName": "cbd-test3",
+    "name": "childcluster1"
+  },
+  "placement": {
+    "region": "us-east-1",
+    "availabilityZone": "us-east-1a"
+  },
+  "tags": {
+    "userDefinedTags": {}
+  },
+  "cluster": {
+    "ambari": {
+      "blueprintName": "ChildClusterHA",
+      "platformVersion": "HDP 3.0",
+      "ambariRepoDetailsJson": {
+        "version": "2.7.1.0",
+        "baseUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.1.0",
+        "gpgKeyUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.1.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+      },
+      "ambariStackDetails": {
+        "version": "3.0",
+        "verify": false,
+        "enableGplRepo": false,
+        "stack": "HDP",
+        "repositoryVersion": "3.0.1.0-187",
+        "versionDefinitionFileUrl": "http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.0.1.0/HDP-3.0.1.0-187.xml",
+        "stackOs": "redhat7",
+        "mpacks": []
+      },
+      "userName": "admin",
+      "password": "password1",
+      "validateBlueprint": false,
+      "ambariSecurityMasterKey": "",
+      "enableSecurity": false
+    },
+    "cloudStorage": {},
+    "rdsConfigNames": [
+      "hivedb",
+      "ranger"
+    ]
+  },
+  "imageSettings": {
+    "imageCatalog": "cloudbreak-default",
+    "imageId": "2c5cd6ea-7d5b-4004-73f2-27ad2e1ce7a9"
+  },
+  "imageType": "base",
+  "instanceGroups": [
+    {
+      "parameters": {},
+      "template": {
+        "parameters": {},
+        "instanceType": "m4.large",
+        "volumeType": "standard",
+        "volumeCount": 1,
+        "volumeSize": 100,
+        "rootVolumeSize": 50,
+        "awsParameters": {
+          "encryption": {
+            "type": "NONE"
+          }
+        }
+      },
+      "nodeCount": 1,
+      "group": "master1",
+      "type": "GATEWAY",
+      "recoveryMode": "MANUAL",
+      "recipeNames": [],
+      "securityGroup": {
+        "securityGroupId": "sg-a29dedd2"
+      }
+    },
+    {
+      "parameters": {},
+      "template": {
+        "parameters": {},
+        "instanceType": "m4.large",
+        "volumeType": "standard",
+        "volumeCount": 1,
+        "volumeSize": 100,
+        "rootVolumeSize": 50,
+        "awsParameters": {
+          "encryption": {
+            "type": "NONE"
+          }
+        }
+      },
+      "nodeCount": 1,
+      "group": "master3",
+      "type": "CORE",
+      "recoveryMode": "MANUAL",
+      "recipeNames": [],
+      "securityGroup": {
+        "securityGroupId": "sg-a29dedd2"
+      }
+    },
+    {
+      "parameters": {},
+      "template": {
+        "parameters": {},
+        "instanceType": "m4.large",
+        "volumeType": "standard",
+        "volumeCount": 1,
+        "volumeSize": 100,
+        "rootVolumeSize": 50,
+        "awsParameters": {
+          "encryption": {
+            "type": "NONE"
+          }
+        }
+      },
+      "nodeCount": 1,
+      "group": "master2",
+      "type": "CORE",
+      "recoveryMode": "MANUAL",
+      "recipeNames": [],
+      "securityGroup": {
+        "securityGroupId": "sg-a29dedd2"
+      }
+    },
+    {
+      "parameters": {},
+      "template": {
+        "parameters": {},
+        "instanceType": "m4.large",
+        "volumeType": "standard",
+        "volumeCount": 1,
+        "volumeSize": 100,
+        "rootVolumeSize": 50,
+        "awsParameters": {
+          "encryption": {
+            "type": "NONE"
+          }
+        }
+      },
+      "nodeCount": 5,
+      "group": "clients",
+      "type": "CORE",
+      "recoveryMode": "MANUAL",
+      "recipeNames": [],
+      "securityGroup": {
+        "securityGroupId": "sg-a29dedd2"
+      }
+    }
+  ],
+  "network": {
+    "parameters": {
+      "subnetId": "subnet-7ca7d90b",
+      "vpcId": "vpc-bb301cde"
+    }
+  },
+  "stackAuthentication": {
+    "publicKeyId": "cloudbreak-temp-cat"
+  }
+}
+
