@@ -1,2 +1,5 @@
 *.json
 ../*
+.cbd*
+.deps/
+.starttime
