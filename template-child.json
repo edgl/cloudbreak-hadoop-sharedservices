@@ -74,7 +74,9 @@
       "group": "master1",
       "type": "GATEWAY",
       "recoveryMode": "MANUAL",
-      "recipeNames": [],
+			"recipeNames": [
+        "createusers"
+      ],
       "securityGroup": {
         "securityGroupId": "sg-a29dedd2"
       }
@@ -98,7 +100,9 @@
       "group": "master3",
       "type": "CORE",
       "recoveryMode": "MANUAL",
-      "recipeNames": [],
+			"recipeNames": [
+        "createusers"
+      ],
       "securityGroup": {
         "securityGroupId": "sg-a29dedd2"
       }
@@ -122,7 +126,9 @@
       "group": "master2",
       "type": "CORE",
       "recoveryMode": "MANUAL",
-      "recipeNames": [],
+			"recipeNames": [
+        "createusers"
+      ],
       "securityGroup": {
         "securityGroupId": "sg-a29dedd2"
       }
@@ -146,7 +152,9 @@
       "group": "clients",
       "type": "CORE",
       "recoveryMode": "MANUAL",
-      "recipeNames": [],
+			"recipeNames": [
+        "createusers"
+      ],
       "securityGroup": {
         "securityGroupId": "sg-a29dedd2"
       }
