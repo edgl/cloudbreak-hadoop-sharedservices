@@ -1,67 +1,54 @@
 {
   "inputs": {
-    "rangerusersyncpassword": "password1234",
-    "s3key": "",
     "s3secret": "",
-    "rangerkeyadminpassword": "password1234",
+    "s3key": "",
     "rangeradminpassword": "password1234",
-    "atlasadminpassword": "password1234",
-    "rangertagsyncpassword": "password1234"
+"master1": "172.31.7.24",
+"master2": "172.31.15.210",
+"master3": "172.31.6.173"
   },
-"general": {
+  "general": {
     "credentialName": "aws-creds",
-    "name": "parentcluster2"
+    "name": "childcluster1"
   },
   "placement": {
     "region": "us-east-1",
-    "availabilityZone": "us-east-1b"
+    "availabilityZone": "us-east-1a"
   },
   "tags": {
     "userDefinedTags": {}
   },
   "cluster": {
-    "ambari": {
+     "ambari": {
       "blueprintName": "ParentCluster",
-      "platformVersion": "HDP 3.0",
+      "platformVersion": "HDP 3.1",
       "ambariRepoDetailsJson": {
-        "version": "2.7.1.0",
-        "baseUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.1.0",
-        "gpgKeyUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.1.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+        "version": "2.7.3.0",
+        "baseUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0",
+        "gpgKeyUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
       },
       "ambariStackDetails": {
-        "version": "3.0",
+        "version": "3.1",
         "verify": false,
         "enableGplRepo": false,
         "stack": "HDP",
-        "repositoryVersion": "3.0.1.0-187",
-        "versionDefinitionFileUrl": "http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.0.1.0/HDP-3.0.1.0-187.xml",
+        "repositoryVersion": "3.1.0.0-78",
+        "versionDefinitionFileUrl": "http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.1.0.0/HDP-3.1.0.0-78.xml",
         "stackOs": "redhat7",
         "mpacks": []
       },
-      "gateway": null,
       "userName": "admin",
       "password": "password1",
       "validateBlueprint": false,
       "ambariSecurityMasterKey": "",
-      "kerberos": null,
       "enableSecurity": false
     },
-    "cloudStorage": {
-      "locations": null,
-      "s3": null,
-      "adls": null,
-      "wasb": null,
-      "gcs": null
-    },
+    "cloudStorage": {},
     "rdsConfigNames": [
-      "ambari",
-      "hivedb",
-      "ranger"
-    ],
-    "ldapConfigName": null,
-    "proxyName": null
+      "hivedb31",
+      "ranger31"
+    ]
   },
-  "flexId": null,
   "imageSettings": {
     "imageCatalog": "cloudbreak-default",
     "imageId": "2c5cd6ea-7d5b-4004-73f2-27ad2e1ce7a9"
@@ -87,7 +74,9 @@
       "group": "master1",
       "type": "GATEWAY",
       "recoveryMode": "MANUAL",
-      "recipeNames": [],
+			"recipeNames": [
+        "createusers"
+      ],
       "securityGroup": {
         "securityGroupId": "sg-02562a2805fe7b618"
       }
@@ -111,31 +100,9 @@
       "group": "master3",
       "type": "CORE",
       "recoveryMode": "MANUAL",
-      "recipeNames": [],
-      "securityGroup": {
-        "securityGroupId": "sg-02562a2805fe7b618"
-      }
-    },
-    {
-      "parameters": {},
-      "template": {
-        "parameters": {},
-        "instanceType": "m4.large",
-        "volumeType": "standard",
-        "volumeCount": 1,
-        "volumeSize": 100,
-        "rootVolumeSize": 50,
-        "awsParameters": {
-          "encryption": {
-            "type": "NONE"
-          }
-        }
-      },
-      "nodeCount": 1,
-      "group": "workers",
-      "type": "CORE",
-      "recoveryMode": "MANUAL",
-      "recipeNames": [],
+			"recipeNames": [
+        "createusers"
+      ],
       "securityGroup": {
         "securityGroupId": "sg-02562a2805fe7b618"
       }
@@ -159,7 +126,35 @@
       "group": "master2",
       "type": "CORE",
       "recoveryMode": "MANUAL",
-      "recipeNames": [],
+			"recipeNames": [
+        "createusers"
+      ],
+      "securityGroup": {
+        "securityGroupId": "sg-02562a2805fe7b618"
+      }
+    },
+    {
+      "parameters": {},
+      "template": {
+        "parameters": {},
+        "instanceType": "m4.large",
+        "volumeType": "standard",
+        "volumeCount": 1,
+        "volumeSize": 100,
+        "rootVolumeSize": 50,
+        "awsParameters": {
+          "encryption": {
+            "type": "NONE"
+          }
+        }
+      },
+      "nodeCount": 5,
+      "group": "clients",
+      "type": "CORE",
+      "recoveryMode": "MANUAL",
+			"recipeNames": [
+        "createusers"
+      ],
       "securityGroup": {
         "securityGroupId": "sg-02562a2805fe7b618"
       }
@@ -167,17 +162,12 @@
   ],
   "network": {
     "parameters": {
-      "publicNetId": null,
-      "routerId": null,
-      "internetGatewayId": null,
       "subnetId": "subnet-925c64e5",
       "vpcId": "vpc-48d82c2c"
-    },
-    "subnetCIDR": null
+    }
   },
   "stackAuthentication": {
-    "publicKeyId": "census-demo",
-    "publicKey": null
+    "publicKeyId": "census-demo"
   }
 }
 

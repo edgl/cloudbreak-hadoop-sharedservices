@@ -437,8 +437,8 @@
         }
     ],
     "Blueprints": {
-        "blueprint_name": "hdp30clientclusters",
+        "blueprint_name": "hdp31clientclusters",
         "stack_name": "HDP",
-        "stack_version": "3.0"
+        "stack_version": "3.1"
     }
 }

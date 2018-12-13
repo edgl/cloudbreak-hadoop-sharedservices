@@ -22,19 +22,19 @@
   "cluster": {
     "ambari": {
       "blueprintName": "ParentCluster",
-      "platformVersion": "HDP 3.0",
+      "platformVersion": "HDP 3.1",
       "ambariRepoDetailsJson": {
-        "version": "2.7.1.0",
-        "baseUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.1.0",
-        "gpgKeyUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.1.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+        "version": "2.7.3.0",
+        "baseUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0",
+        "gpgKeyUrl": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
       },
       "ambariStackDetails": {
-        "version": "3.0",
+        "version": "3.1",
         "verify": false,
         "enableGplRepo": false,
         "stack": "HDP",
-        "repositoryVersion": "3.0.1.0-187",
-        "versionDefinitionFileUrl": "http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.0.1.0/HDP-3.0.1.0-187.xml",
+        "repositoryVersion": "3.1.0.0-78",
+        "versionDefinitionFileUrl": "http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.1.0.0/HDP-3.1.0.0-78.xml",
         "stackOs": "redhat7",
         "mpacks": []
       },
@@ -54,9 +54,9 @@
       "gcs": null
     },
     "rdsConfigNames": [
-      "ambari",
-      "hivedb",
-      "ranger"
+      "ambari31",
+      "hivedb31",
+      "ranger31"
     ],
     "ldapConfigName": null,
     "proxyName": null
