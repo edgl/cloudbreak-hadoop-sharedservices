@@ -3,9 +3,9 @@
     "s3secret": "",
     "s3key": "",
     "rangeradminpassword": "password1234",
-"master1": "172.31.7.24",
-"master2": "172.31.15.210",
-"master3": "172.31.6.173"
+"master3": "172.31.13.57",
+"master1": "172.31.14.171",
+"master2": "172.31.1.251"
   },
   "general": {
     "credentialName": "aws-creds",
@@ -20,7 +20,7 @@
   },
   "cluster": {
      "ambari": {
-      "blueprintName": "ParentCluster",
+      "blueprintName": "ClientCluster31",
       "platformVersion": "HDP 3.1",
       "ambariRepoDetailsJson": {
         "version": "2.7.3.0",
